@@ -26,6 +26,8 @@ norris_dat_filtered_new %>%
 # Add column for the natural log of hatchling svl
 norris_dat_filtered_hatchsvlln <- norris_dat_filtered_new %>% mutate(hatch_svl_ln = log(hatch_svl))
 View(norris_dat_filtered_hatchsvlln)
+# Group and summarise creates a table that groups by a specific variable (i.e., species) and takes the calculation for each group (i.e., mean, sd)
+# Mutate will add a new column and does a calculation on each row for a different column you select.
 
 
 
