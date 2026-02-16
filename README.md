@@ -8,5 +8,5 @@ The data is from the study, Norris et al. 2024, where the researchers investigat
 
 ##WEEK 3## 
 Rscript - week3_EmmaWhite.R
-Data - Norris2024_master_data.csv
-Created boxplots comparing each traits across treatments. 
+Data - Norris2024_master_data.csv.
+Created boxplots comparing each traits across treatments and grouped by parental environment. 

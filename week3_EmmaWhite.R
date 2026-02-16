@@ -1,6 +1,7 @@
 ##################### Packages #####################
 library(dplyr)
 library(ggplot2)
+library(egg)
 ######## Norris 2024 dataset
 norris_dat <- read.csv("Norris2024_master_data.csv")
 ### Filter out individuals that died before or during experiments
@@ -14,63 +15,70 @@ norris_dat_filtered_new <- na.omit(norris_dat_filtered_new)
 
 ################# ggplots ##########################
 View(norris_dat_filtered_new)
+# I want to display trait value for each individual measured from each treatment and group by parental island source.
 # Create boxplot with data points overlayed 
 # Max Sprint Speed
-ggplot(norris_dat_filtered_new, aes(x=treatment, y=hatchling_max_speed, color = parental_island)) +
+bp1 <- ggplot(norris_dat_filtered_new, aes(x=treatment, y=hatchling_max_speed, color = parental_island)) +
   geom_boxplot() +
   geom_point(position = position_jitterdodge(jitter.width=0.2), size=2, alpha=0.6) +
   theme_classic() +
-  xlab("Treatment") +
+  xlab(NULL) +
   ylab("Hatchling Max Speed") +
-  labs(color="Parental Island")
+  labs(color="Parental Island") +
+  theme(legend.position = "none")
 
 # Create boxplot with overlayed datapoints
-# Hatchling SVL
-ggplot(norris_dat_filtered_new, aes(x=treatment, y=hatch_svl, color = parental_island)) +
+# Log Hatchling SVL
+bp2 <- ggplot(norris_dat_filtered_new, aes(x=treatment, y=log(hatch_svl), color = parental_island)) +
+  geom_boxplot() +
+  geom_point(position = position_jitterdodge(jitter.width=0.2), size=2, alpha=0.6) +
+  theme_classic() +
+  xlab(NULL) +
+  ylab("Log Hatchling SVL") +
+  labs(color="Parental Island") +
+  theme(legend.position = "none")
+
+# Log Sprint Trial SVL
+bp3 <- ggplot(norris_dat_filtered_new, aes(x=treatment, y=log(sprint_svl), color = parental_island)) +
+  geom_boxplot() +
+  geom_point(position = position_jitterdodge(jitter.width=0.2), size=2, alpha=0.6) +
+  theme_classic() +
+  xlab(NULL) +
+  ylab("Log Sprint Speed Trial SVL") +
+  labs(color="Parental Island") +
+  theme(legend.position = "none")
+
+# Log Egg Mass
+bp4 <- ggplot(norris_dat_filtered_new, aes(x=treatment, y= log(egg_mass), color = parental_island)) +
+  geom_boxplot() +
+  geom_point(position = position_jitterdodge(jitter.width=0.2), size=2, alpha=0.6) +
+  theme_classic() +
+  xlab(NULL) +
+  ylab("Log Egg Mass") +
+  labs(color="Parental Island")
+
+# Log Hatchling Mass
+bp5 <- ggplot(norris_dat_filtered_new, aes(x=treatment, y=log(hatch_mass), color = parental_island)) +
   geom_boxplot() +
   geom_point(position = position_jitterdodge(jitter.width=0.2), size=2, alpha=0.6) +
   theme_classic() +
   xlab("Treatment") +
-  ylab("Hatch SVL") +
-  labs(color="Parental Island")
+  ylab("Log Hatchling Mass") +
+  labs(color="Parental Island") +
+  theme(legend.position = "none")
 
-# Sprint Trial SVL
-ggplot(norris_dat_filtered_new, aes(x=treatment, y=sprint_svl, color = parental_island)) +
+# Log Water Loss (change in body mass)
+bp6 <- ggplot(norris_dat_filtered_new, aes(x=treatment, y=log(water_loss_g), color = parental_island)) +
   geom_boxplot() +
   geom_point(position = position_jitterdodge(jitter.width=0.2), size=2, alpha=0.6) +
   theme_classic() +
   xlab("Treatment") +
-  ylab("Sprint Speed SVL") +
-  labs(color="Parental Island")
+  ylab("Log Water Loss") +
+  labs(color="Parental Island") +
+  theme(legend.position = "none")
 
-# Egg Mass
-ggplot(norris_dat_filtered_new, aes(x=treatment, y=egg_mass, color = parental_island)) +
-  geom_boxplot() +
-  geom_point(position = position_jitterdodge(jitter.width=0.2), size=2, alpha=0.6) +
-  theme_classic() +
-  xlab("Treatment") +
-  ylab("Egg Mass") +
-  labs(color="Parental Island")
-
-# Hatchling Mass
-ggplot(norris_dat_filtered_new, aes(x=treatment, y=hatch_mass, color = parental_island)) +
-  geom_boxplot() +
-  geom_point(position = position_jitterdodge(jitter.width=0.2), size=2, alpha=0.6) +
-  theme_classic() +
-  xlab("Treatment") +
-  ylab("Hatchling Mass") +
-  labs(color="Parental Island")
-
-# Water Loss (change in body mass)
-ggplot(norris_dat_filtered_new, aes(x=treatment, y=log(water_loss_g), color = parental_island)) +
-  geom_boxplot() +
-  geom_point(position = position_jitterdodge(jitter.width=0.2), size=2, alpha=0.6) +
-  theme_classic() +
-  xlab("Treatment") +
-  ylab("Water Loss") +
-  labs(color="Parental Island")
-
-
+# I want to show all the boxplots in a grid format (6x6)
+ggarrange(bp1, bp2, bp3, bp4, bp5, bp6)
 
 
 
