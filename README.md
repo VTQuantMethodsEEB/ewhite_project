@@ -10,3 +10,15 @@ The data is from the study, Norris et al. 2024, where the researchers investigat
 Rscript - week3_EmmaWhite.R
 Data - Norris2024_master_data.csv.
 Created boxplots comparing each traits across treatments and grouped by parental environment. 
+
+##WEEK 4##
+Rscript = week4_EmmaWhite.R
+Data - Norris2024_master_data.csv
+
+## Week 5 ##
+Rscript - week5_EmmaWhite.R
+Data - Norris2024_master_data.csv
+Ran permutation test, shapiro-wilks tests, and welch's t-test on Norris et al. 2024 data.
+
+
+
