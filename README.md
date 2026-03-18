@@ -12,7 +12,7 @@ Created new Rscript Norris2024_GxE. Loaded in data called Norris2024_master_data
 Rscript - week3_EmmaWhite.R Data - Norris2024_master_data.csv. Created boxplots comparing each traits across treatments and grouped by parental environment.
 
 
-##WEEK 4##
+## WEEK 4##
 Rscript = week4_EmmaWhite.R
 Data - Norris2024_master_data.csv
 
