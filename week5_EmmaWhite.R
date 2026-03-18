@@ -86,6 +86,15 @@ shapiro.test.open.shade.waterloss # p-value = 1.28e-5. not normal
 tt.openisland.waterloss <- t.test(log_water_loss~treatment,data=norris_dat_filtered_open_sub)
 tt.openisland.waterloss # p-value = 0.93. no statistically clear difference in log water loss between treatments for open island hatchlings
 
+### Hypothesis 2: Does maximum sprint speed differ between treatments for shade island source hatchlings?
+# Subset for shade parental island
+norris_dat_filtered_new_shade <- norris_dat_filtered_new %>% dplyr::filter(parental_island == "Shade")
+# Filter for shade treatment
+norris_dat_filtered_new_shade_shade <- norris_dat_filtered_new %>% dplyr::filter(treatment == "Shade")
+# Shapiro test
+shapiro.test.shade.shade.maxspeed <- shapiro.test(norris_dat_filtered_new_shade_shade$hatchling_max_speed)
+shapiro.test.shade.shade.maxspeed # data is not normally distributed 
 
-
-
+# Welch's t-test 
+tt.shadeisland.maxspeed <- t.test(hatchling_max_speed~treatment, data=norris_dat_filtered_new_shade)
+tt.shadeisland.maxspeed # No statistically clear difference in max speed among hatchlings incubated across treatments
