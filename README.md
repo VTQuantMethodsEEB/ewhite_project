@@ -20,5 +20,5 @@ Ran permutation test, shapiro-wilks tests, and welch's t-test on Norris et al. 2
 ## Week 7&8 
 Rscript - week7&8_EmmaWhite.R. Data - Norris2024_master_data.csv. Ran univariate and multivariate linear models, ran diagnostic tests, and created ggplots.
 
-## Week 10%11
+## Week 10&11
 Rscript - week10and11_EmmaWhite.R. Data - Norris2024_master_data.csv. Ran GLMs for hypothesis testing and model comparison.
