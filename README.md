@@ -22,3 +22,8 @@ Rscript - week7&8_EmmaWhite.R. Data - Norris2024_master_data.csv. Ran univariate
 
 ## Week 10&11
 Rscript - week10and11_EmmaWhite.R. Data - Norris2024_master_data.csv. Ran GLMs for hypothesis testing and model comparison.
+
+## Week 12
+Rscript - week12_EmmaWhite.R. Data - Norris2025_master_data.csv. Ran linear mixed models to test hypotheses.
+
+
