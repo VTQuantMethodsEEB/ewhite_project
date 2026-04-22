@@ -99,6 +99,7 @@ ggplot(pp, aes(x=treatment,y=hatchling_max_speed,colour=parental_island))+
   geom_line(aes(group=parental_island))+
   geom_point(data=norris_dat_filtered_new, aes(x=treatment,y=hatchling_max_speed,colour=parental_island))
 
+#what does all this tell you?
 
 ######## H3: What is the effect of svl and mass on hatchling max speed 
 norris_dat_filtered_new_openparent <- norris_dat_filtered_new %>% dplyr::filter(parental_island == "Open")

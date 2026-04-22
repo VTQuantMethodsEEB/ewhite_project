@@ -75,11 +75,12 @@ lm3 <- lm(hatch_svl ~ treatment + sex, norris_dat_filtered_new_openparent)
 lm4 <- lm(hatch_svl ~ treatment + sex + egg_mass, norris_dat_filtered_new_openparent)
 
 anova(lm1, lm2, lm3, lm4) # the best model is lm4?
+#yes. weird ewault though because 3 isn't an improvement over 2 but 4 is an improvement over 3.
 
 #### Model comparison - AIC
 AIC(lm1, lm2, lm3, lm4) # the best model is lm4 (lowest AIC = 491)
 aictab(cand.set=list(lm1,lm2,lm3,lm4),modnames=c("lm1","lm2","lm3","lm4"))#AIC table
-
+#AIC supports this with second best model as lm2, but lm4 is still better
 
 
 
