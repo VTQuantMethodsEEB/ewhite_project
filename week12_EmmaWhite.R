@@ -12,6 +12,10 @@ library(lme4)
 library(glmmTMB)
 ######## Norris 2024 dataset
 norris_dat <- read.csv("Norris2024_master_data.csv")
+### Filter out individuals that died before or during experiments
+norris_dat_filtered <- norris_dat %>% dplyr::filter(!(egg_id %in% c(32, 65, 107, 144, 162, 171, 225, 234,
+                                                                    258, 297, 298, 307, 345, 359, 361, 365, 370,
+                                                                    390, 402, 412, 416, 420, 429)))
 # Remove the comments and notes columns
 norris_dat_filtered_new <- norris_dat_filtered[-c(12,13)]
 # Remove NAs from the entire dataset

@@ -26,4 +26,5 @@ Rscript - week10and11_EmmaWhite.R. Data - Norris2024_master_data.csv. Ran GLMs f
 ## Week 12
 Rscript - week12_EmmaWhite.R. Data - Norris2025_master_data.csv. Ran linear mixed models to test hypotheses.
 
-
+## Final Project
+Rscript - final.project.R. Data - xrays2.csv and All juveniles.csv
