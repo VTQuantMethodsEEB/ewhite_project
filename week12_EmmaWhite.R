@@ -10,6 +10,7 @@ library(DHARMa)
 library(AICcmodavg)
 library(lme4)
 library(glmmTMB)
+
 ######## Norris 2024 dataset
 norris_dat <- read.csv("Norris2024_master_data.csv")
 ### Filter out individuals that died before or during experiments
@@ -26,6 +27,7 @@ norris_dat_filtered_new_openparent <- norris_dat_filtered_new %>% dplyr::filter(
 # General linear mixed effects model (with lmer)
 lm1 <- lmer(hatchling_max_speed~treatment + hatch_svl + (1|cage), data=norris_dat_filtered_new_openparent) 
 summary(lm1)
+#KL - singularity warning here - better to try glmmTMB
 # Calculate p-values
 # Number of individuals + number of cages + (number of treatments + continuous variable)
 180 - 33 - (2+1) # 144
